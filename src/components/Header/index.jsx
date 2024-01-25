@@ -5,7 +5,7 @@ const Header = () => {
     <div>
       <nav>
         <Link to='/'>Accueil</Link>
-        <Link to='/page1'>Une page</Link>
+        <Link to='/apropos'>A propos</Link>
       </nav>
     </div>
   )
