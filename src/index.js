@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Accueil from './pages/Accueil';
 import APropos from './pages/APropos';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import PageErreur from './pages/PageErreur';
 import Fiche from './pages/Fiche';
 
@@ -18,6 +19,7 @@ root.render(
         <Route path='/apropos' element={<APropos/>} />
         <Route path='*' element={<PageErreur/>} />
       </Routes>
+      <Footer />
     </Router>
   </React.StrictMode>
 );
