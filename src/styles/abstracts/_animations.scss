@@ -1,0 +1,128 @@
+@use 'variables' as v;
+@use 'sass:map';
+
+// default is 3 starters 3 maincourses and 3 desserts
+@keyframes maincourses {
+  @for $i from 0 through map.get(v.$starters-count, "sc3") {
+    #{calc($i * 100 / map.get(v.$starters-count, "sc3"))}% {
+      transform: translateY(calc(($i - map.get(v.$starters-count, "sc3")) * v.$translateY-unit));
+    }
+  }
+}
+
+@keyframes desserts {
+  @for $j from 0 through (map.get(v.$starters-count, "sc3") + map.get(v.$maincourses-count, "mc3")) {
+    #{calc($j * 100 / (map.get(v.$starters-count, "sc3") + map.get(v.$maincourses-count, "mc3")))}% {
+      transform: translateY(calc(($j - (map.get(v.$starters-count, "sc3") + map.get(v.$maincourses-count, "mc3"))) * v.$translateY-unit));
+    }
+  }
+}
+
+@keyframes dish {
+  from {
+    transform: perspective(1000px) rotateX(90deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+.maincourses {
+  animation-name: maincourses;
+  animation-duration: calc(map.get(v.$starters-count, "sc3") * v.$timing-unit / 2);
+  // animation-delay: calc((map.get(v.$desserts-count, "dc3") + map.get(v.$maincourses-count, "mc3")) * v.$timing-unit / 2);
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(.59,0,.76,1);
+}
+
+.desserts {
+  animation-name: desserts;
+  animation-duration: calc((map.get(v.$maincourses-count, "mc3") + map.get(v.$starters-count, "sc3")) * v.$timing-unit / 2);
+  // animation-delay: calc(map.get(v.$desserts-count, "dc3") * v.$timing-unit / 2);
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(.59,0,.76,1);
+}
+
+.dish {
+  @for $i from 1 through (map.get(v.$starters-count, "sc3") + map.get(v.$maincourses-count, "mc3") + map.get(v.$desserts-count, "dc3")) {
+    &--#{$i} {
+      animation-delay: calc(($i - 1)*v.$timing-unit / 2);
+    }
+  }
+  animation: dish v.$timing-unit;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in-out;
+}
+
+// exception with 4 starters
+@keyframes maincourses-sc4 {
+  @for $i from 0 through map.get(v.$starters-count, "sc4") {
+    #{calc($i * 100 / map.get(v.$starters-count, "sc4"))}% {
+      transform: translateY(calc(($i - map.get(v.$starters-count, "sc4")) * v.$translateY-unit));
+    }
+  }
+}
+
+@keyframes desserts-sc4 {
+  @for $j from 0 through (map.get(v.$starters-count, "sc4") + map.get(v.$maincourses-count, "mc3")) {
+    #{calc($j * 100 / (map.get(v.$starters-count, "sc4") + map.get(v.$maincourses-count, "mc3")))}% {
+      transform: translateY(calc(($j - (map.get(v.$starters-count, "sc4") + map.get(v.$maincourses-count, "mc3"))) * v.$translateY-unit));
+    }
+  }
+}
+
+.count-s4-m3-d3{
+  .maincourses {
+    animation-name: maincourses-sc4;
+    animation-duration: calc(map.get(v.$starters-count, "sc4") * v.$timing-unit / 2);
+    // animation-delay: calc((map.get(v.$maincourses-count, "mc3") + map.get(v.$desserts-count, "dc3")) * v.$timing-unit / 2);
+  }
+  
+  .desserts {
+    animation-name: desserts-sc4;
+    animation-duration: calc((map.get(v.$starters-count, "sc4") + map.get(v.$maincourses-count, "mc3")) * v.$timing-unit / 2);
+    // animation-delay: calc(map.get(v.$desserts-count, "dc3") * v.$timing-unit / 2);
+  }
+  
+  .dish {
+    @for $i from 1 through (map.get(v.$starters-count, "sc4") + map.get(v.$maincourses-count, "mc3") + map.get(v.$desserts-count, "dc3")) {
+      &--#{$i} {
+        animation-delay: calc(($i - 1)*v.$timing-unit / 2);
+      }
+    }
+  }
+}
+
+// loader home page
+@keyframes hp-loader-bg {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  99% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes hp-loader-loop {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+.loader {
+  animation: hp-loader-bg v.$hp-loader-fade v.$hp-loading-time forwards;
+  &::before {
+    animation: hp-loader-loop v.$hp-heart-beat both;
+    animation-iteration-count: calc((v.$hp-loading-time / v.$hp-heart-beat) - 1);
+    animation-direction: alternate;
+  }
+}

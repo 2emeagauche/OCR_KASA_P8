@@ -5,7 +5,9 @@ const Fiche = () => {
   const {ficheId} = useParams()
 
   return (
-    <h1>Fiche du logement {ficheId}</h1>
+    <div className="container">
+      <h1>Fiche du logement {ficheId}</h1>
+    </div>
   )
 }
 

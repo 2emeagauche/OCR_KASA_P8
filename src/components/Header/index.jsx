@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Logo from "../Logo";
 
 const Header = () => {
   return (
-    <div>
+    <div className="main-header">
+      <Logo />
       <nav>
-        <Link to='/'>Accueil</Link>
-        <Link to='/apropos'>A propos</Link>
+        <NavLink to='/'>Accueil</NavLink>
+        <NavLink to='/apropos'>A propos</NavLink>
       </nav>
     </div>
   )

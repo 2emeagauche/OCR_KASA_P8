@@ -1,0 +1,36 @@
+@mixin container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 100px;
+}
+
+@mixin center-by-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin before-after {
+  content:'';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@mixin picto-before-text($imgurl, $pl: 1.5rem, $bgz: auto) {
+  position: relative;
+  padding-left: $pl;
+  background-image: $imgurl;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: $bgz;
+}
+
+@mixin button-like($radius: 1.5rem, $sdwX: 0px, $sdwY: 4px, $sdwBlur: 15px, $sdwAlpha: 0.15) {
+  border-radius: $radius;
+  box-shadow: $sdwX $sdwY $sdwBlur 0px rgba(0, 0, 0, $sdwAlpha);
+}

@@ -1,0 +1,19 @@
+@use '../abstracts/variables' as v;
+
+.main-footer{
+  text-align: center;
+  padding-top: 66px;
+  background-color: v.$third-color;
+  color: v.$secondary-color;
+  .logo {
+    width: 122px;
+    height: auto;
+    margin-bottom: 40px;
+    *{
+      fill: v.$secondary-color;
+    }
+  }
+  p {
+    font-size: 24px;
+  }
+}

@@ -4,7 +4,7 @@ import logements from '../../datas/logements.json'
 const Accueil = () => {
 
   return (
-    <div>
+    <div className="container">
       <h1>Chez vous, partout et ailleurs</h1>
       <ul>
         {
