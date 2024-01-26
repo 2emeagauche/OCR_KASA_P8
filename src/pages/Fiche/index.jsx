@@ -6,7 +6,7 @@ const Fiche = ({logements}) => {
   const logementInfos = logements.find((logement) => logement.id === ficheId)
 
   return (
-    <div className="container">
+    <div className="container fiche">
       <h1>{logementInfos.title}</h1>
     </div>
   )

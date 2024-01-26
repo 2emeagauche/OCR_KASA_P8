@@ -1,0 +1,8 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.fiche{
+  h1{
+    font-size: 18px;
+  }
+}
