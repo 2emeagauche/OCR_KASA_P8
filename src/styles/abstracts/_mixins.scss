@@ -1,8 +1,14 @@
+@use '../abstracts/variables' as v;
+
 @mixin container {
-  max-width: 1440px;
+  
   margin: 0 auto;
   width: 100%;
-  padding: 0 100px;
+  padding: 0 20px;
+  @media (min-width: v.$tablet) {
+    padding: 0 100px;
+    max-width: 1440px;
+  }
 }
 
 @mixin center-by-flex {

@@ -14,9 +14,14 @@ body {
 #root{
   height: 100%;
   display: grid;
-  grid-template-rows: 68px 1fr 209px;
-  gap: 50px;
-  padding-top: 45px;
+  grid-template-rows: 50px 1fr 209px;
+  gap: 27px;
+  padding-top: 20px;
+  @media (min-width: v.$tablet) {
+    grid-template-rows: 68px 1fr 209px;
+    gap: 50px;
+    padding-top: 45px;
+  }
 }
 
 .container{

@@ -7,12 +7,25 @@
   justify-content: space-between;
   align-items: center;
 
+  .logo {
+    width: 145px;
+    height: auto;
+    @media (min-width: v.$tablet) {
+      width: 210px;
+    }
+  }
+
   nav{
     display: flex;
-    gap: 57px;
-    font-size: 24px;
+    gap: 26px;
+    font-size: 12px;
     .active{
       text-decoration: underline;
     }
+    @media (min-width: v.$tablet) {
+      font-size: 24px;
+      gap: 57px;
+    }
   }
+  
 }

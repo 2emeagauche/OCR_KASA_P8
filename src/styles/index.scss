@@ -4,3 +4,7 @@
 @use 'layout';
 @use 'layout/header';
 @use 'layout/footer';
+
+@use 'components/banner';
+
+@use 'pages/accueil';
