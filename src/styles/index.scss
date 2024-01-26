@@ -6,5 +6,8 @@
 @use 'layout/footer';
 
 @use 'components/banner';
+@use 'components/folder';
 
 @use 'pages/accueil';
+@use 'pages/fiche';
+@use 'pages/apropos';
