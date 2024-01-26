@@ -41,6 +41,9 @@
       grid-template-rows: 1fr;
       padding-top: 43px;
     }
+    .arrow-anim{
+      transform: rotate(180deg);
+    }
     @media (min-width: v.$tablet) {
       .folder-anim{
         padding-top: 67px;
@@ -63,4 +66,8 @@
 }
 .folder-content{
   overflow-y: hidden;
+}
+.arrow-anim{
+  transform: rotate(0);
+  transition: transform 300ms;
 }
