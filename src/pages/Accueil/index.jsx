@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom"
-import logements from '../../datas/logements.json'
 import bannerImg from '../../assets/hero-img-accueil.png'
 import Banner from "../../components/Banner"
+import Card from "../../components/Card"
 
-const Accueil = () => {
+const Accueil = ({logements}) => {
   
   return (
     <div className="container">
@@ -11,12 +10,7 @@ const Accueil = () => {
       <ul className="logements-list">
         {
           logements.map(({id, title, cover}) => 
-          <li key={id}>
-            <Link to={`/fiche/${id}`}>
-              <img src={cover} alt='' />
-              <p>{title}</p>
-            </Link>
-          </li>
+            <Card key={id} id={id} title={title} cover={cover} />
           )
         }
       </ul>

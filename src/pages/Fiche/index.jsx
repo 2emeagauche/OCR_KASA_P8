@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom"
 
-const Fiche = () => {
+const Fiche = ({logements}) => {
 
   const {ficheId} = useParams()
+  const logementInfos = logements.find((logement) => logement.id === ficheId)
 
   return (
     <div className="container">
-      <h1>Fiche du logement {ficheId}</h1>
+      <h1>{logementInfos.title}</h1>
     </div>
   )
 }

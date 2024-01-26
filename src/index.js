@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import styles from './styles/index.scss'
+import logements from './datas/logements.json'
 import Accueil from './pages/Accueil';
 import APropos from './pages/APropos';
 import Header from './components/Header';
@@ -15,8 +16,8 @@ root.render(
     <Router>
       <Header />
         <Routes>
-          <Route path='/' element={<Accueil/>} />
-          <Route path='/fiche/:ficheId' element={<Fiche />} />
+          <Route path='/' element={<Accueil logements={logements} />} />
+          <Route path='/fiche/:ficheId' element={<Fiche logements={logements} />} />
           <Route path='/apropos' element={<APropos/>} />
           <Route path='*' element={<PageErreur/>} />
         </Routes>
