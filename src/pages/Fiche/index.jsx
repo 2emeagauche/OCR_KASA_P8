@@ -1,12 +1,17 @@
-import { useParams } from "react-router-dom"
+import { useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 
 const Fiche = ({logements}) => {
-
+  
   const {ficheId} = useParams()
   const logementInfos = logements.find((logement) => logement.id === ficheId)
-
+  console.log(logementInfos)
+  const navigate = useNavigate()
+  
+  useEffect(() => {if(!logementInfos) navigate("*")})
+  
   return (
-    <div className="container fiche">
+    logementInfos && <div className="container fiche">
       <h1>{logementInfos.title}</h1>
     </div>
   )

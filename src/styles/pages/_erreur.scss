@@ -1,0 +1,33 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.container-404{
+  @include m.center-by-flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  @media (min-width: v.$tablet) {
+    justify-content: space-between;
+  }
+  h1{
+    font-weight: 700;
+    font-size: 96px;
+    @media (min-width: v.$tablet) {
+      font-size: 288px;
+    }
+  }
+  p{
+    font-size: 18px;
+    text-wrap: balance;
+    @media (min-width: v.$tablet) {
+      font-size: 36px;
+    }
+  }
+  a{
+    font-size: 14px;
+    text-decoration: underline;
+    @media (min-width: v.$tablet) {
+      font-size: 18px;
+    }
+  }
+}
