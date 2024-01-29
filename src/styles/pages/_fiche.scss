@@ -8,6 +8,11 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   overflow: hidden;
+  @media (min-width: v.$tablet) {
+    height: 415px;
+    margin-bottom: 24px;
+    border-radius: 25px;
+  }
 }
 .carousel-nav{
   position: absolute;
@@ -26,6 +31,12 @@
     width: 50%;
     margin: auto;
     display: block;
+    @media (min-width: v.$tablet) {
+      width: 48%;
+    }
+  }
+  @media (min-width: v.$tablet) {
+    width: 96px;
   }
 }
 .carousel-frame{
@@ -55,17 +66,38 @@
   bottom: 10px;
   color: white;
   font-size: 12px;
+  @media (min-width: v.$tablet) {
+    font-size: 18px;
+    bottom: 25px;
+  }
+}
+.location-tags-host-and-rate{
+  @media (min-width: v.$tablet) {
+    @include m.center-by-flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
 }
 .location-and-tags{
   margin-bottom: 16px;
+  @media (min-width: v.$tablet) {
+    margin-bottom: auto;
+  }
   h1{
     font-size: 18px;
     text-wrap: balance;
     margin-bottom: 5px;
+    @media (min-width: v.$tablet) {
+      font-size: 36px;
+    }
   }
   h2{
     font-size: 14px;
     margin-bottom: 10px;
+    @media (min-width: v.$tablet) {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
   }
 }
 .tags{
@@ -82,27 +114,65 @@
   padding: 0px 7px;
   color: v.$secondary-color;
   font-size: 10px;
+  @media (min-width: v.$tablet) {
+    border-radius: 10px;
+    min-width: 115px;
+    height: 25px;
+    font-size: 14px;
+  }
 }
 .host-and-rate{
   @include m.center-by-flex;
   justify-content: space-between;
   flex-direction: row-reverse;
   margin-bottom: 13px;
+  @media (min-width: v.$tablet) {
+    display: block;
+    margin-bottom: auto;
+  }
 }
 .host{
   @include m.center-by-flex;
   gap: 10px;
+  @media (min-width: v.$tablet) {
+    justify-content: right;
+    margin-bottom: 20px;
+  }
 }
 .host-name{
   text-align: right;
   font-size: 12px;
+  @media (min-width: v.$tablet) {
+    font-size: 18px;
+  }
 }
 .host-picture{
   width: 32px;
   height: 32px;
   border-radius: 16px;
+  @media (min-width: v.$tablet) {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+  }
 }
 .rate{
   width: 98px;
   height: 18px;
+  @media (min-width: v.$tablet) {
+    width: auto;
+    height: auto;
+  }
+}
+.description-and-equipments{
+  @media (min-width: v.$tablet) {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6%;
+    width: 100%;
+    align-items: flex-start;
+    .folder{
+      flex: 1 1 0;
+    }
+  }
 }
