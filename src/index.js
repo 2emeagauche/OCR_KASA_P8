@@ -15,12 +15,12 @@ root.render(
   <React.StrictMode>
     <Router>
       <Header />
-        <Routes>
-          <Route path='/' element={<Accueil logements={logements} />} />
-          <Route path='/fiche/:ficheId' element={<Fiche logements={logements} />} />
-          <Route path='/apropos' element={<APropos/>} />
-          <Route path='*' element={<PageErreur/>} />
-        </Routes>
+      <Routes>
+        <Route path='/' element={<Accueil logements={logements} />} />
+        <Route path='/fiche/:ficheId' element={<Fiche logements={logements} />} />
+        <Route path='/apropos' element={<APropos/>} />
+        <Route path='*' element={<PageErreur/>} />
+      </Routes>
       <Footer />
     </Router>
   </React.StrictMode>

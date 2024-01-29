@@ -8,7 +8,7 @@ const Fiche = ({logements}) => {
   console.log(logementInfos)
   const navigate = useNavigate()
   
-  useEffect(() => {if(!logementInfos) navigate("*")})
+  useEffect(() => {if(!logementInfos) navigate('*')})
   
   return (
     logementInfos && <div className="container fiche">

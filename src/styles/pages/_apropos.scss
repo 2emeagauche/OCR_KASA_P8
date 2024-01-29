@@ -1,0 +1,9 @@
+@use '../abstracts/variables' as v;
+
+.folders{
+  width: 100%;
+  margin: 0 auto;
+  @media (min-width: v.$tablet) {
+    width: 90%;
+  }
+}
