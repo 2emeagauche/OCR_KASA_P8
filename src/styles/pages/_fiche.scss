@@ -1,8 +1,96 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
 
-.fiche{
+.carousel{
+  position: relative;
+  height: 255px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.carousel-nav{
+  position: absolute;
+  width: 24px;
+  top: 0px;
+  bottom: 0px;
+  cursor: pointer;
+  z-index: 1;
+  &.nav-left{
+    left: 0;
+  }
+  &.nav-right{
+    right: 0;
+  }
+  & > img{
+    width: 50%;
+    margin: auto;
+    display: block;
+  }
+}
+.carousel-frame{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.img-frame{
+  height: 100%;
+  width: 100%;
+  flex: 0 0 auto;
+  & > img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+.location-and-tags{
+  margin-bottom: 16px;
   h1{
     font-size: 18px;
+    text-wrap: balance;
+    margin-bottom: 5px;
   }
+  h2{
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tag{
+  @include m.center-by-flex;
+  background-color: v.$primary-color;
+  border-radius: 5px;
+  min-width: 84px;
+  height: 18px;
+  padding: 0px 7px;
+  color: v.$secondary-color;
+  font-size: 10px;
+}
+.host-and-rate{
+  @include m.center-by-flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin-bottom: 13px;
+}
+.host{
+  @include m.center-by-flex;
+  gap: 10px;
+}
+.host-name{
+  text-align: right;
+  font-size: 12px;
+}
+.host-picture{
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+}
+.rate{
+  width: 98px;
+  height: 18px;
 }
