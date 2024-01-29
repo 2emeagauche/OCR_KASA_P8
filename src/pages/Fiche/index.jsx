@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Folder from '../../components/Folder'
 import navLeft from '../../assets/carousel-nav-gauche.png'
@@ -10,9 +10,10 @@ const Fiche = ({logements}) => {
   const logementInfos = logements.find((logement) => logement.id === ficheId)
   const navigate = useNavigate()
   const splitNames = logementInfos.host.name.trim().split(" ")
+  const [activePictureIndex, setActivePictureIndex] = useState(4)
   
   useEffect(() => {if(!logementInfos) navigate('*')})
-  
+
   return (
     logementInfos && <div className="container fiche">
       <div className="carousel" >
@@ -22,7 +23,7 @@ const Fiche = ({logements}) => {
         <button className="carousel-nav nav-right">
             <img src={navRight} alt="" />
         </button>
-        <div className="carousel-frame">
+        <div className="carousel-frame" style={{transform: `translateX(-${activePictureIndex}00%)`}}>
           {
             logementInfos.pictures.map((picture, index) =>
               <div className="img-frame" key={index}>
@@ -31,6 +32,7 @@ const Fiche = ({logements}) => {
             )
           }
         </div>
+        <p className="current-picture">{activePictureIndex + 1}/{logementInfos.pictures.length}</p>
       </div>
       <div className="location-and-tags" >
         <h1>{logementInfos.title}</h1>

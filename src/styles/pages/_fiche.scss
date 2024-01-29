@@ -33,6 +33,7 @@
   height: 100%;
   width: 100%;
   position: relative;
+  transition: transform 500ms ease-in-out;
 }
 .img-frame{
   height: 100%;
@@ -41,8 +42,19 @@
   & > img {
     display: block;
     object-fit: cover;
+    width: 100%;
     height: 100%;
   }
+}
+.current-picture{
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 10px;
+  color: white;
+  font-size: 12px;
 }
 .location-and-tags{
   margin-bottom: 16px;
