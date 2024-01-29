@@ -15,7 +15,7 @@ const Fiche = ({logements}) => {
   
   useEffect(() => {if(!logementInfos) navigate('*')})
 
-  const handleNav = (dir) => {
+  const handleCarousel = (dir) => {
     dir === 'left' ?
     setActivePictureIndex(activePictureIndex > 0 ? activePictureIndex - 1 : carouselLength - 1) :
     setActivePictureIndex(activePictureIndex < carouselLength - 1 ? activePictureIndex + 1 : 0)
@@ -26,10 +26,10 @@ const Fiche = ({logements}) => {
       <div className="carousel" >
         {
           carouselLength > 1 ? <>
-            <button className="carousel-nav nav-left" onClick={() => handleNav('left')} >
+            <button className="carousel-nav nav-left" onClick={() => handleCarousel('left')} >
                 <img src={navLeft} alt="" />
             </button>
-            <button className="carousel-nav nav-right" onClick={() => handleNav('right')}>
+            <button className="carousel-nav nav-right" onClick={() => handleCarousel('right')}>
                 <img src={navRight} alt="" />
             </button>
             <p className="current-picture">{activePictureIndex + 1}/{carouselLength}</p>
