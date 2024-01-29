@@ -10,20 +10,27 @@ const Fiche = ({logements}) => {
   const logementInfos = logements.find((logement) => logement.id === ficheId)
   const navigate = useNavigate()
   const splitNames = logementInfos.host.name.trim().split(" ")
-  const [activePictureIndex, setActivePictureIndex] = useState(4)
+  const carouselLength = logementInfos.pictures.length
+  const [activePictureIndex, setActivePictureIndex] = useState(0)
   
   useEffect(() => {if(!logementInfos) navigate('*')})
+
+  const handleNav = (dir) => {
+    dir === 'left' ?
+    setActivePictureIndex(activePictureIndex > 0 ? activePictureIndex - 1 : carouselLength - 1) :
+    setActivePictureIndex(activePictureIndex < carouselLength - 1 ? activePictureIndex + 1 : 0)
+  }
 
   return (
     logementInfos && <div className="container fiche">
       <div className="carousel" >
-        <button className="carousel-nav nav-left" >
+        <button className="carousel-nav nav-left" onClick={() => handleNav('left')} >
             <img src={navLeft} alt="" />
         </button>
-        <button className="carousel-nav nav-right">
+        <button className="carousel-nav nav-right" onClick={() => handleNav('right')}>
             <img src={navRight} alt="" />
         </button>
-        <div className="carousel-frame" style={{transform: `translateX(-${activePictureIndex}00%)`}}>
+        <div className="carousel-frame" style={{transform: `translateX(${activePictureIndex * (-1)}00%)`}}>
           {
             logementInfos.pictures.map((picture, index) =>
               <div className="img-frame" key={index}>
@@ -32,7 +39,7 @@ const Fiche = ({logements}) => {
             )
           }
         </div>
-        <p className="current-picture">{activePictureIndex + 1}/{logementInfos.pictures.length}</p>
+        <p className="current-picture">{activePictureIndex + 1}/{carouselLength}</p>
       </div>
       <div className="location-and-tags" >
         <h1>{logementInfos.title}</h1>
