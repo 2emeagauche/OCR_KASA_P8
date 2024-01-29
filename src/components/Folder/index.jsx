@@ -1,4 +1,4 @@
-import arrow from '../../assets/arrow.png'
+import arrow from '../../assets/folder-arrow.png'
 import { useState } from 'react'
 
 const Folder = ({tabTitle, folderContent}) => {
