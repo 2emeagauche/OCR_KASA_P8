@@ -24,12 +24,17 @@ const Fiche = ({logements}) => {
   return (
     logementInfos && <div className="container fiche">
       <div className="carousel" >
-        <button className="carousel-nav nav-left" onClick={() => handleNav('left')} >
-            <img src={navLeft} alt="" />
-        </button>
-        <button className="carousel-nav nav-right" onClick={() => handleNav('right')}>
-            <img src={navRight} alt="" />
-        </button>
+        {
+          carouselLength > 1 ? <>
+            <button className="carousel-nav nav-left" onClick={() => handleNav('left')} >
+                <img src={navLeft} alt="" />
+            </button>
+            <button className="carousel-nav nav-right" onClick={() => handleNav('right')}>
+                <img src={navRight} alt="" />
+            </button>
+            <p className="current-picture">{activePictureIndex + 1}/{carouselLength}</p>
+          </> : null
+        }
         <div className="carousel-frame" style={{transform: `translateX(${activePictureIndex * (-1)}00%)`}}>
           {
             logementInfos.pictures.map((picture, index) =>
@@ -39,7 +44,6 @@ const Fiche = ({logements}) => {
             )
           }
         </div>
-        <p className="current-picture">{activePictureIndex + 1}/{carouselLength}</p>
       </div>
       <div className="location-and-tags" >
         <h1>{logementInfos.title}</h1>
