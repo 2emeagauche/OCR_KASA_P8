@@ -22,7 +22,7 @@ const Fiche = ({logements}) => {
 		equipments: [],
 		tags: []
 	}
-  useEffect(() => {if(!logementInfos.id) navigate('*')})
+  useEffect(() => {if(!logementInfos.id) navigate('*')}, [])
   const navigate = useNavigate()
   const splitNames = logementInfos.host.name.trim().split(" ")
   const carouselLength = logementInfos.pictures.length
@@ -36,7 +36,7 @@ const Fiche = ({logements}) => {
   }
 
   return (
-    logementInfos.id ? <div className="container fiche">
+    <div className="container fiche">
       <div className="carousel" >
         {
           carouselLength > 1 ? <>
@@ -102,7 +102,7 @@ const Fiche = ({logements}) => {
           </ul>
         } />
       </div>
-    </div> : null
+    </div>
   )
 }
 
