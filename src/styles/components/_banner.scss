@@ -6,7 +6,9 @@
   height: 110px;
   display: grid;
   grid-template: 1fr/1fr;
+  align-content: center;
   margin-bottom: 22px;
+  overflow: hidden;
   @media (min-width: v.$tablet) {
     border-radius: 25px;
     height: 223px;
