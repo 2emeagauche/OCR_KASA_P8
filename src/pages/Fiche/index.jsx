@@ -7,26 +7,24 @@ import navRight from '../../assets/carousel-nav-droite.png'
 const Fiche = ({logements}) => {
   
   const {ficheId} = useParams()
-  const logementInfos = logements.find((logement) => logement.id === ficheId) ?? {
-		id: "",
-    title: "",
-		cover: "",
-		pictures: [],
-		description: "",
-		host: {
-			name: "",
-			picture: ""
-		},
-		rating: "",
-		location: "",
-		equipments: [],
-		tags: []
-	}
-  useEffect(() => {if(!logementInfos.id) navigate('*')}, [])
+  const logementInfos = logements.find((logement) => logement.id === ficheId)
+  
+  const [activePictureIndex, setActivePictureIndex] = useState(0)
+  
   const navigate = useNavigate()
+  
+  useEffect(() => {
+    if(!logementInfos) {
+      navigate('*')
+    }
+  }, [])
+  if(!logementInfos) {
+    return
+  }
+
+
   const splitNames = logementInfos.host.name.trim().split(" ")
   const carouselLength = logementInfos.pictures.length
-  const [activePictureIndex, setActivePictureIndex] = useState(0)
   
 
   const handleCarousel = (dir) => {
