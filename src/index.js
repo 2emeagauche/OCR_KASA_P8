@@ -13,7 +13,7 @@ import Fiche from './pages/Fiche';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/OCR_KASA_P8">
       <Header />
       <Routes>
         <Route path='/' element={<Accueil logements={logements} />} />
