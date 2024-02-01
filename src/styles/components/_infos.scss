@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as m;
 
 .location-tags-host-and-rate{
-  @media (min-width: v.$tablet) {
+  @media (min-width: v.$desktop) {
     @include m.center-by-flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -11,6 +11,7 @@
 .location-and-tags{
   margin-bottom: 16px;
   @media (min-width: v.$tablet) {
+    flex: 1 1 0;
     margin-bottom: auto;
   }
   h1{
@@ -56,7 +57,7 @@
   justify-content: space-between;
   flex-direction: row-reverse;
   margin-bottom: 13px;
-  @media (min-width: v.$tablet) {
+  @media (min-width: v.$desktop) {
     display: block;
     margin-bottom: auto;
   }
@@ -95,7 +96,7 @@
   }
 }
 .description-and-equipments{
-  @media (min-width: v.$tablet) {
+  @media (min-width: v.$desktop) {
     display: flex;
     flex-wrap: nowrap;
     gap: 6%;

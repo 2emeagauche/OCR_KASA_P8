@@ -45,7 +45,10 @@
     @media (min-width: v.$tablet) {
       justify-self: center;
       font-size: 48px;
-      margin-left: 0;
+    }
+    @media (min-width: v.$desktop) {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
