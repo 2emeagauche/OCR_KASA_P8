@@ -21,7 +21,7 @@ const Fiche = ({logements}) => {
 
   return (
     <div className="container">
-      <Carousel carouselLength={logementInfos.pictures.length} pictures={logementInfos.pictures} />
+      <Carousel pictures={logementInfos.pictures} />
       <Infos logementInfos={logementInfos} />
     </div>
   )

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import navLeft from '../../assets/carousel-nav-gauche.png'
 import navRight from '../../assets/carousel-nav-droite.png'
 
-const Carousel = ({carouselLength, pictures}) => {
+const Carousel = ({pictures}) => {
   
   const [activePictureIndex, setActivePictureIndex] = useState(0)
+  const carouselLength = pictures.length
   
   const handleCarousel = (dir) => {
     dir === 'left' ?
